@@ -27,7 +27,7 @@ Request.prototype.charset = function(enc) {
         });
 
         res.on('end',function(err) {
-            res.text = iconv.decode(enc);
+            res.text = iconv.decode(res.rawBuffer,enc);
             cb(err);
         });
     })
