@@ -1,0 +1,33 @@
+{
+  "name": "superagent-charset",
+  "version": "0.0.1",
+  "description": "add charset support for node's superagent",
+  "main": "index.js",
+  "dependencies": {
+    "iconv-lite": "^0.4.6"
+  },
+  "peerDependencies": {
+    "superagent": "^0.21.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:magicdawn/superagent-charset.git"
+  },
+  "keywords": [
+    "superagent",
+    "encoding",
+    "charset"
+    "gbk",
+    "gb2312"
+    "iconv"
+  ],
+  "author": "magicdawn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/magicdawn/superagent-charset/issues"
+  },
+  "homepage": "https://github.com/magicdawn/superagent-charset"
+}
