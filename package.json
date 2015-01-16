@@ -7,7 +7,7 @@
     "iconv-lite": "^0.4.6"
   },
   "peerDependencies": {
-    "superagent": "^0.21.0"
+    "superagent": "*"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,9 +19,9 @@
   "keywords": [
     "superagent",
     "encoding",
-    "charset"
+    "charset",
     "gbk",
-    "gb2312"
+    "gb2312",
     "iconv"
   ],
   "author": "magicdawn",

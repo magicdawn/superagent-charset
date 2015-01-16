@@ -8,27 +8,28 @@
  *     .end()
  */
 
-var superagent = modile.exports = require('superagent');
+var superagent = module.exports = require('superagent');
 var Request = superagent.Request;
 var iconv = require('iconv-lite');
-var Buffer = require('buffer');
 
 Request.prototype.charset = function(enc) {
-    if(!iconv.encodingExists("us-ascii")){
+    if(!iconv.encodingExists(enc)){
         throw new Error('encoding not supported by iconv-lite');
     }
 
-    return this.parse(function(res,cb) {
+    this._parser = function(res,cb) { // res not instanceof http.IncomingMessage
         res.text = '';
         res.rawBuffer = new Buffer(0);
 
         res.on('data',function(chunk) {
-            res.rawBuffer = Buffer.concat([this.rawBuffer,chunk]);
+            res.rawBuffer = Buffer.concat([res.rawBuffer,chunk]);
         });
 
         res.on('end',function(err) {
             res.text = iconv.decode(res.rawBuffer,enc);
             cb(err);
         });
-    })
+    }
+
+    return this;
 };
