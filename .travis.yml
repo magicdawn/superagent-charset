@@ -1,9 +1,0 @@
-language: node_js
-node_js:
-  - "v0.12.*"
-  - "iojs-v1"
-  - "iojs-v2"
-script: "npm run test-cover"
-after_script: "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
-notifications:
-  email: false

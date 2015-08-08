@@ -23,4 +23,4 @@ request
 ```
 
 # License
-the MIT License, Magicdawn(784876393@qq.com)
+the MIT License, http://magicdawn.mit-license.org
