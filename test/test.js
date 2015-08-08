@@ -8,7 +8,6 @@ describe('Basic Test', function() {
     request.get('http://www.sohu.com/')
       .charset('gbk')
       .end(function(err, res) {
-        console.log(res.text);
         res.text.should.match(/搜狐/);
         done();
       });
