@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * module dependencies
  */
@@ -11,24 +13,34 @@ var iconv = require('iconv-lite');
  * @param {String} enc : the encoding
  */
 Request.prototype.charset = function(enc) {
+  // check iconv supported encoding
   if (!iconv.encodingExists(enc)) {
     throw new Error('encoding not supported by iconv-lite');
   }
 
   // set the parser
   this._parser = function(res, cb) { // res not instanceof http.IncomingMessage
-    res.text = '';
-    res.rawBuffer = new Buffer(0);
+    var buffer = [];
 
     res.on('data', function(chunk) {
-      res.rawBuffer = Buffer.concat([res.rawBuffer, chunk]);
+      buffer.push(chunk);
     });
 
     res.on('end', function(err) {
-      res.text = iconv.decode(res.rawBuffer, enc);
-      cb(err);
+      var text, err;
+      try {
+        text = iconv.decode(Buffer.concat(buffer), enc);
+      } catch (e) {
+        err = e;
+      }
+
+      if (err) {
+        cb(err);
+      } else {
+        res.text = text;
+      }
     });
-  }
+  };
 
   return this;
 };
