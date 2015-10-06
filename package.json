@@ -1,6 +1,6 @@
 {
   "name": "superagent-charset",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "add charset support for node's superagent",
   "main": "index.js",
   "dependencies": {
