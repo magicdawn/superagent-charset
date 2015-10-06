@@ -1,3 +1,5 @@
+'use strict';
+
 var assert = require('assert');
 var request = require('../');
 var should = require('should');

@@ -32,12 +32,9 @@ Request.prototype.charset = function(enc) {
         text = iconv.decode(Buffer.concat(buffer), enc);
       } catch (e) {
         err = e;
-      }
-
-      if (err) {
-        cb(err);
-      } else {
+      } finally {
         res.text = text;
+        cb(err);
       }
     });
   };
