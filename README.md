@@ -15,10 +15,10 @@ var assert = require('assert');
 var request = require('superagent-charset');
 
 request
-	.get('http://www.sohu.com/')
-	.charset('gbk')
+  .get('http://www.sohu.com/')
+  .charset('gbk')
   .end(function(err,res) {
-		assert(res.text.indexOf('搜狐') > -1);
+    assert(res.text.indexOf('搜狐') > -1);
   });
 ```
 
