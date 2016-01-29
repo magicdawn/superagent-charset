@@ -1,17 +1,17 @@
 'use strict';
 
-var assert = require('assert');
-var request = require('../');
-var should = require('should');
+const assert = require('assert');
+const request = require('../');
+const should = require('should');
 
 describe('Basic Test', function() {
 
-  it('should work ?', function(done) {
+  it('it works', function(done) {
     request.get('http://www.sohu.com/')
       .charset('gbk')
       .end(function(err, res) {
         res.text.should.match(/搜狐/);
-        done();
+        done(err);
       });
   });
 

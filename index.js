@@ -3,15 +3,23 @@
 /**
  * module dependencies
  */
-var superagent = module.exports = require('superagent');
-var Request = superagent.Request;
-var iconv = require('iconv-lite');
+
+const superagent = require('superagent');
+const Request = superagent.Request;
+const iconv = require('iconv-lite');
+
+/**
+ * exports superagent again
+ */
+
+module.exports = superagent;
 
 /**
  * add `charset` to request
  *
  * @param {String} enc : the encoding
  */
+
 Request.prototype.charset = function(enc) {
   // check iconv supported encoding
   if (!iconv.encodingExists(enc)) {
@@ -20,14 +28,14 @@ Request.prototype.charset = function(enc) {
 
   // set the parser
   this._parser = function(res, cb) { // res not instanceof http.IncomingMessage
-    var buffer = [];
+    const buffer = [];
 
     res.on('data', function(chunk) {
       buffer.push(chunk);
     });
 
-    res.on('end', function(err) {
-      var text, err;
+    res.on('end', function() {
+      let text, err;
       try {
         text = iconv.decode(Buffer.concat(buffer), enc);
       } catch (e) {
