@@ -6,7 +6,19 @@ add charset support for node's superagent
 $ npm i superagent-charset --save
 ```
 
-# Usage
+# API
+
+## install
+
+```
+const charset = require('superagent-charset');
+const request = require('superagent');
+charset(request);
+```
+
+this will add `request.Request.prototype.charset`
+
+# charset
 
 `.charset(encoding)` , will passed to [iconv-lite](https://github.com/ashtuchkin/iconv-lite)
 
