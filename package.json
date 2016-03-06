@@ -1,13 +1,10 @@
 {
   "name": "superagent-charset",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "description": "add charset support for node's superagent",
   "main": "index.js",
   "dependencies": {
     "iconv-lite": "^0.4.13"
-  },
-  "peerDependencies": {
-    "superagent": "^1.3.0"
   },
   "scripts": {
     "test": "mocha -R spec",
