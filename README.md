@@ -1,14 +1,14 @@
 # superagent-charset
 add charset support for node's superagent
 
-# Install
+## Install
 ```js
 $ npm i superagent-charset --save
 ```
 
-# API
+## API
 
-## install
+### install
 
 ```
 const charset = require('superagent-charset');
@@ -18,7 +18,7 @@ charset(request);
 
 this will add `request.Request.prototype.charset`
 
-# charset
+### charset
 
 `.charset(encoding)` , will passed to [iconv-lite](https://github.com/ashtuchkin/iconv-lite)
 
@@ -42,5 +42,5 @@ describe('Basic Test', function() {
 });
 ```
 
-# License
+## License
 the MIT License, http://magicdawn.mit-license.org
