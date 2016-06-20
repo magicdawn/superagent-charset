@@ -1,5 +1,11 @@
 # superagent-charset
-add charset support for node's superagent
+> add charset support for node's superagent
+
+[![Coverage Status](https://img.shields.io/coveralls/magicdawn/superagent-charset.svg?style=flat-square)](https://coveralls.io/github/magicdawn/superagent-charset?branch=master)
+[![npm version](https://img.shields.io/npm/v/superagent-charset.svg?style=flat-square)](https://www.npmjs.com/package/superagent-charset)
+[![npm downloads](https://img.shields.io/npm/dm/superagent-charset.svg?style=flat-square)](https://www.npmjs.com/package/superagent-charset)
+[![npm license](https://img.shields.io/npm/l/superagent-charset.svg?style=flat-square)](http://magicdawn.mit-license.org)
+
 
 ## Install
 ```js

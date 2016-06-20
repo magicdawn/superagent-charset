@@ -1,6 +1,6 @@
 {
   "name": "superagent-charset",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "add charset support for node's superagent",
   "main": "index.js",
   "dependencies": {
@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "mocha",
-    "test-cover": "istanbul cover _mocha -- -R spec -u exports"
+    "test-cover": "istanbul cover _mocha -- -R spec -u exports",
+    "report-cover": "cat ./coverage/lcov.info | coveralls"
   },
   "repository": {
     "type": "git",

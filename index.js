@@ -17,10 +17,6 @@ const checkEncoding = enc => {
   }
 };
 
-const detectEncoding = (type, text) => {
-
-};
-
 /**
  * install the charset()
  */
@@ -35,8 +31,10 @@ module.exports = function install(superagent) {
    */
 
   Request.prototype.charset = function(enc) {
-    let err;
-    if ((err = checkEncoding(enc))) throw err;
+    {
+      let err;
+      if ((err = checkEncoding(enc))) throw err;
+    }
 
     // set the parser
     this._parser = function(res, cb) { // res not instanceof http.IncomingMessage
