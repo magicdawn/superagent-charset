@@ -17,7 +17,7 @@ describe('Basic Test', function() {
       });
   });
 
-  it('automatic detection', function(done) {
+  it('automatic detection by headers', function(done) {
     // install charset;
     const request = require('superagent');
     charset(request);
@@ -26,6 +26,32 @@ describe('Basic Test', function() {
       .charset() // automatic detection
       .end((err, res) => {
         res.text.should.match(/腾讯/);
+        done(err);
+      });
+  });
+
+  it('automatic detection by meta', function(done) {
+    // install charset;
+    const request = require('superagent');
+    charset(request);
+
+    request.get('http://acm.hdu.edu.cn/showproblem.php?pid=2000')
+      .charset() // automatic detection
+      .end((err, res) => {
+        res.text.should.match(/ASCII码排序/);
+        done(err);
+      });
+  });
+
+  it('automatic detection by default utf-8', function(done) {
+    // install charset;
+    const request = require('superagent');
+    charset(request);
+
+    request.get('http://files.cnblogs.com/files/52cik/cnblogs.css')
+      .charset() // automatic detection
+      .end((err, res) => {
+        res.text.should.match(/布局修改/);
         done(err);
       });
   });
