@@ -16,4 +16,17 @@ describe('Basic Test', function() {
         done(err);
       });
   });
+
+  it('automatic detection', function(done) {
+    // install charset;
+    const request = require('superagent');
+    charset(request);
+
+    request.get('http://www.qq.com/')
+      .charset() // automatic detection
+      .end((err, res) => {
+        res.text.should.match(/腾讯/);
+        done(err);
+      });
+  });
 });
