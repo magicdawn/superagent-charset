@@ -7,6 +7,21 @@
 const iconv = require('iconv-lite');
 
 /**
+ * util
+ */
+
+const checkEncoding = enc => {
+  // check iconv supported encoding
+  if (enc && !iconv.encodingExists(enc)) {
+    return new Error('encoding not supported by iconv-lite');
+  }
+};
+
+const detectEncoding = (type, text) => {
+
+};
+
+/**
  * install the charset()
  */
 
@@ -20,11 +35,8 @@ module.exports = function install(superagent) {
    */
 
   Request.prototype.charset = function(enc) {
-
-    // check iconv supported encoding
-    if (enc && !iconv.encodingExists(enc)) {
-      throw new Error('encoding not supported by iconv-lite');
-    }
+    let err;
+    if ((err = checkEncoding(enc))) throw err;
 
     // set the parser
     this._parser = function(res, cb) { // res not instanceof http.IncomingMessage
@@ -37,15 +49,20 @@ module.exports = function install(superagent) {
       res.on('end', function() {
         let text, err;
 
+        // detect if encoding if not specified
         if (!enc) {
           enc = (res.headers['content-type'].match(/charset=(.+)/) || []).pop();
+
           if (!enc) {
             enc = (buffer.toString().match(/<meta.+?charset=['"]?([^"']+)/) || []).pop();
           }
-        }
 
-        if (!enc) {
-          enc = 'utf-8';
+          // check
+          if ((err = checkEncoding(enc))) return cb(err);
+
+          if (!enc) {
+            enc = 'utf-8';
+          }
         }
 
         try {
