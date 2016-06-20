@@ -22,9 +22,9 @@ module.exports = function install(superagent) {
   Request.prototype.charset = function(enc) {
 
     // check iconv supported encoding
-    // if (!iconv.encodingExists(enc)) {
-    //   throw new Error('encoding not supported by iconv-lite');
-    // }
+    if (enc && !iconv.encodingExists(enc)) {
+      throw new Error('encoding not supported by iconv-lite');
+    }
 
     // set the parser
     this._parser = function(res, cb) { // res not instanceof http.IncomingMessage
