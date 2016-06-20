@@ -7,7 +7,7 @@
     "iconv-lite": "^0.4.13"
   },
   "scripts": {
-    "test": "mocha -R spec",
+    "test": "mocha",
     "test-cover": "istanbul cover _mocha -- -R spec -u exports"
   },
   "repository": {
@@ -30,9 +30,15 @@
   "homepage": "https://github.com/magicdawn/superagent-charset",
   "devDependencies": {
     "coveralls": "^2.11.8",
+    "eslint": "^2.13.0",
     "istanbul": "^0.4.2",
     "mocha": "^2.4.5",
     "should": "^8.2.2",
     "superagent": "^2.0.0"
-  }
+  },
+  "files": [
+    "index.js",
+    "package.json",
+    "README.md"
+  ]
 }
