@@ -49,16 +49,21 @@ module.exports = function install(superagent) {
 
         // detect if encoding if not specified
         if (!enc) {
-          enc = (res.headers['content-type'].match(/charset=(.+)/) || []).pop();
+          if (res.headers['content-type']) {
+            // Extracted from headers
+            enc = (res.headers['content-type'].match(/charset=(.+)/) || []).pop();
+          }
 
           if (!enc) {
-            enc = (buffer.toString().match(/<meta.+?charset=['"]?([^"']+)/) || []).pop();
+            // Extracted from <meta charset="gb2312"> or <meta http-equiv=Content-Type content="text/html;charset=gb2312">
+            enc = (buffer.toString().match(/<meta.+?charset=['"]?([^"']+)/i) || []).pop();
           }
 
           // check
           if ((err = checkEncoding(enc))) return cb(err);
 
           if (!enc) {
+            // Default utf8
             enc = 'utf-8';
           }
         }
