@@ -1,14 +1,12 @@
 'use strict';
 
-const charset = require('../');
 const should = require('should');
+const request = require('superagent');
+const charset = require('../');
+charset(request); // install charset;
 
 describe('Basic Test', function() {
   it('it works', function(done) {
-    // install charset;
-    const request = require('superagent');
-    charset(request);
-
     request.get('http://www.sohu.com/')
       .charset('gbk')
       .end((err, res) => {
@@ -18,9 +16,6 @@ describe('Basic Test', function() {
   });
 
   it('bad charset', function() {
-    const request = require('superagent');
-    charset(request);
-
     (function() {
       request.get('https://www.baidu.com/')
         .charset('bad-charset')
@@ -29,10 +24,6 @@ describe('Basic Test', function() {
   });
 
   it('automatic detection by headers', function(done) {
-    // install charset;
-    const request = require('superagent');
-    charset(request);
-
     request.get('http://www.qq.com/')
       .charset() // automatic detection
       .end((err, res) => {
@@ -42,10 +33,6 @@ describe('Basic Test', function() {
   });
 
   it('automatic detection by meta', function(done) {
-    // install charset;
-    const request = require('superagent');
-    charset(request);
-
     request.get('http://acm.hdu.edu.cn/showproblem.php?pid=2000')
       .charset() // automatic detection
       .end((err, res) => {
@@ -55,10 +42,6 @@ describe('Basic Test', function() {
   });
 
   it('automatic detection by default utf-8', function(done) {
-    // install charset;
-    const request = require('superagent');
-    charset(request);
-
     request.get('http://files.cnblogs.com/files/52cik/cnblogs.css')
       .charset() // automatic detection
       .end((err, res) => {
