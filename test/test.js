@@ -17,6 +17,17 @@ describe('Basic Test', function() {
       });
   });
 
+  it('bad charset', function() {
+    const request = require('superagent');
+    charset(request);
+
+    (function() {
+      request.get('https://www.baidu.com/')
+        .charset('bad-charset')
+        .end();
+    }).should.throw('encoding not supported by iconv-lite');
+  });
+
   it('automatic detection by headers', function(done) {
     // install charset;
     const request = require('superagent');
