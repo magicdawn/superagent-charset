@@ -1,0 +1,4 @@
+--require should
+--require co-mocha
+-R spec
+-t 10000
