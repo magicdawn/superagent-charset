@@ -1,4 +1,4 @@
 --require should
 --require co-mocha
 -R spec
--t 10000
+-t 15000
