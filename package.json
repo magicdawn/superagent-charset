@@ -31,10 +31,10 @@
   "devDependencies": {
     "co-mocha": "^1.1.2",
     "coveralls": "^2.11.8",
-    "eslint": "^2.13.0",
-    "istanbul": "^0.4.2",
+    "eslint": "^2.13.1",
+    "istanbul": "^0.4.4",
     "mocha": "^2.4.5",
-    "should": "^8.2.2",
+    "should": "^9.0.2",
     "superagent": "^2.0.0"
   },
   "files": [
