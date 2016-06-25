@@ -8,8 +8,7 @@
   },
   "scripts": {
     "test": "mocha",
-    "test-cover": "istanbul cover _mocha -- -R spec -u exports",
-    "report-cover": "cat ./coverage/lcov.info | coveralls"
+    "test-cover": "istanbul cover _mocha -- -R spec -u exports"
   },
   "repository": {
     "type": "git",
