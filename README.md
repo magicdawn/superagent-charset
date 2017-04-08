@@ -1,4 +1,6 @@
 # superagent-charset
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/magicdawn/superagent-charset.svg)](https://greenkeeper.io/)
 > add charset support for node's superagent
 
 
