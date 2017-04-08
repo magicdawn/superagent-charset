@@ -31,11 +31,11 @@
   "devDependencies": {
     "co-mocha": "^1.1.2",
     "coveralls": "^2.11.8",
-    "eslint": "^2.13.1",
+    "eslint": "^3.19.0",
     "istanbul": "^0.4.4",
-    "mocha": "^2.4.5",
-    "should": "^9.0.2",
-    "superagent": "^2.0.0"
+    "mocha": "^3.2.0",
+    "should": "^11.2.1",
+    "superagent": "^3.5.2"
   },
   "files": [
     "index.js",
