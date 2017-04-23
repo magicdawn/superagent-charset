@@ -1,7 +1,7 @@
 'use strict'
 
 /**
- * module dependencies
+ * Module dependencies
  */
 
 const iconv = require('iconv-lite')
@@ -31,10 +31,8 @@ module.exports = function install(superagent) {
    */
 
   Request.prototype.charset = function(enc) {
-    {
-      let err
-      if ((err = checkEncoding(enc))) throw err
-    }
+    let err
+    if ((err = checkEncoding(enc))) throw err
 
     // set the parser
     this._parser = function(res, cb) { // res not instanceof http.IncomingMessage
@@ -60,7 +58,8 @@ module.exports = function install(superagent) {
           }
 
           // check
-          if ((err = checkEncoding(enc))) return cb(err)
+          err = checkEncoding(enc)
+          if (err) return cb(err)
 
           if (!enc) {
             // Default utf8
