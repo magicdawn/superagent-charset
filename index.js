@@ -73,6 +73,7 @@ module.exports = function install(superagent) {
         try {
           text = iconv.decode(buf, enc)
         } catch (e) {
+          /* istanbul ignore next */
           err = e
         } finally {
           res.text = text
