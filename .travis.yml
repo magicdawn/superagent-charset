@@ -4,6 +4,6 @@ node_js:
   - "v5"
   - "v6"
 script: "npm run test-cover"
-after_script: "cat ./coverage/lcov.info | coveralls"
+after_script: "npm run report-cover"
 notifications:
   email: false

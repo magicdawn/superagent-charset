@@ -4,11 +4,12 @@
   "description": "add charset support for node's superagent",
   "main": "index.js",
   "dependencies": {
-    "iconv-lite": "^0.4.13"
+    "iconv-lite": "^0.4.16"
   },
   "scripts": {
     "test": "mocha",
-    "test-cover": "istanbul cover _mocha -- -R spec -u exports"
+    "test-cover": "istanbul cover _mocha -- -R spec -u exports",
+    "report-cover": "codecov"
   },
   "repository": {
     "type": "git",
@@ -29,10 +30,9 @@
   },
   "homepage": "https://github.com/magicdawn/superagent-charset",
   "devDependencies": {
-    "co-mocha": "^1.1.2",
-    "coveralls": "^2.11.8",
+    "codecov": "^2.1.0",
     "eslint": "^3.19.0",
-    "istanbul": "^0.4.4",
+    "istanbul": "^1.1.0-alpha.1",
     "mocha": "^3.2.0",
     "should": "^11.2.1",
     "superagent": "^3.5.2"
