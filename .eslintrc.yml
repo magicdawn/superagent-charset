@@ -35,7 +35,4 @@ rules:
   require-yield: off
   no-constant-condition: off
 
-parserOptions:
-  ecmaVersion: 8
-
 extends: 'eslint:recommended'
