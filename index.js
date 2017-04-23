@@ -36,14 +36,15 @@ module.exports = function install(superagent) {
 
     // set the parser
     this._parser = function(res, cb) { // res not instanceof http.IncomingMessage
-      const buffer = []
+      const chunks = []
 
       res.on('data', function(chunk) {
-        buffer.push(chunk)
+        chunks.push(chunk)
       })
 
       res.on('end', function() {
         let text, err
+        const buf = Buffer.concat(chunks)
 
         // detect if encoding if not specified
         if (!enc) {
@@ -54,7 +55,7 @@ module.exports = function install(superagent) {
 
           if (!enc) {
             // Extracted from <meta charset="gb2312"> or <meta http-equiv=Content-Type content="text/html;charset=gb2312">
-            enc = (buffer.toString().match(/<meta.+?charset=['"]?([^"']+)/i) || []).pop()
+            enc = (buf.toString().match(/<meta.+?charset=['"]?([^"']+)/i) || []).pop()
           }
 
           // check
@@ -68,7 +69,7 @@ module.exports = function install(superagent) {
         }
 
         try {
-          text = iconv.decode(Buffer.concat(buffer), enc)
+          text = iconv.decode(buf, enc)
         } catch (e) {
           err = e
         } finally {
