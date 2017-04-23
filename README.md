@@ -1,14 +1,13 @@
 # superagent-charset
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/magicdawn/superagent-charset.svg)](https://greenkeeper.io/)
 > add charset support for node's superagent
-
 
 [![Build Status](https://img.shields.io/travis/magicdawn/superagent-charset.svg?style=flat-square)](https://travis-ci.org/magicdawn/superagent-charset)
 [![Coverage Status](https://img.shields.io/coveralls/magicdawn/superagent-charset.svg?style=flat-square)](https://coveralls.io/github/magicdawn/superagent-charset?branch=master)
 [![npm version](https://img.shields.io/npm/v/superagent-charset.svg?style=flat-square)](https://www.npmjs.com/package/superagent-charset)
 [![npm downloads](https://img.shields.io/npm/dm/superagent-charset.svg?style=flat-square)](https://www.npmjs.com/package/superagent-charset)
 [![npm license](https://img.shields.io/npm/l/superagent-charset.svg?style=flat-square)](http://magicdawn.mit-license.org)
+[![Greenkeeper badge](https://badges.greenkeeper.io/magicdawn/superagent-charset.svg)](https://greenkeeper.io/)
 
 
 ## Install
@@ -20,7 +19,7 @@ $ npm i superagent-charset --save
 
 ### install
 
-```
+```js
 const charset = require('superagent-charset');
 const request = require('superagent');
 charset(request);
