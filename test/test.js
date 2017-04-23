@@ -2,8 +2,9 @@
 
 const should = require('should')
 const request = require('superagent')
-const charset = require('../')
-charset(request) // install charset
+const fixtures = require('./fixtures')
+require('../')(request) // #charset
+require('superagent-proxy')(request) // #proxy
 
 describe('Basic Test', function() {
   it('it works', async function() {
@@ -33,6 +34,25 @@ describe('Basic Test', function() {
       .get('http://acm.hdu.edu.cn/showproblem.php?pid=2000')
       .charset() // automatic detection
     res.text.should.match(/ASCII码排序/)
+  })
+
+  it('automatic detection by meta bad-charset', async function() {
+    const server = fixtures.metaBadEncoding.listen()
+    const proxy = `http://localhost:${ server.address().port }`
+
+    let e
+    try {
+      await request
+        .get('http://some.fake.url')
+        .charset() // automatic detection
+        .proxy(proxy)
+    } catch (err) {
+      e = err
+    }
+
+    should.exists(e)
+    e.should.be.instanceof(Error)
+    e.message.should.match(/encoding not supported by iconv-lite/)
   })
 
   it('automatic detection by default utf-8', async function() {
