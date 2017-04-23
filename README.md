@@ -20,9 +20,8 @@ $ npm i superagent-charset --save
 ### install
 
 ```js
-const charset = require('superagent-charset');
-const request = require('superagent');
-charset(request);
+const request = require('superagent')
+require('superagent-charset')(request)
 ```
 
 this will add `request.Request.prototype.charset`
@@ -32,23 +31,20 @@ this will add `request.Request.prototype.charset`
 `.charset(encoding)` , will passed to [iconv-lite](https://github.com/ashtuchkin/iconv-lite)
 
 ```js
-const charset = require('../');
-const should = require('should');
+const should = require('should')
+const request = require('superagent')
+require('../')(request) // install charset
 
 describe('Basic Test', function() {
   it('it works', function(done) {
-    // install charset;
-    const request = require('superagent');
-    charset(request);
-
     request.get('http://www.sohu.com/')
       .charset('gbk')
       .end((err, res) => {
-        res.text.should.match(/搜狐/);
-        done(err);
-      });
-  });
-});
+        res.text.should.match(/搜狐/)
+        done(err)
+      })
+  })
+})
 ```
 
 ## License
