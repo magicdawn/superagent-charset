@@ -33,7 +33,7 @@ this will add `request.Request.prototype.charset`
 ```js
 const should = require('should')
 const request = require('superagent')
-require('../')(request) // install charset
+require('superagent-charset')(request) // install charset
 
 describe('Basic Test', function() {
   it('it works', function(done) {
