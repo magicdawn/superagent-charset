@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.2.0 2017-04-23
+- update deps / devDeps
+- update eslint config, use no semi
+- test coverage get 100%
+- using codecov insteadof coveralls
+- using async/await for test code, rm co-mocha
+
 ## v1.1.1 2016-06-25
 - use ignore case regex when detect using `<meta>`
 
