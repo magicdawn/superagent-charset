@@ -3,7 +3,7 @@
 > add charset support for node's superagent
 
 [![Build Status](https://img.shields.io/travis/magicdawn/superagent-charset.svg?style=flat-square)](https://travis-ci.org/magicdawn/superagent-charset)
-[![Coverage Status](https://img.shields.io/coveralls/magicdawn/superagent-charset.svg?style=flat-square)](https://coveralls.io/github/magicdawn/superagent-charset?branch=master)
+[![Coverage Status](https://img.shields.io/codecov/c/github/magicdawn/superagent-charset.svg?style=flat-square)](https://codecov.io/gh/magicdawn/superagent-charset)
 [![npm version](https://img.shields.io/npm/v/superagent-charset.svg?style=flat-square)](https://www.npmjs.com/package/superagent-charset)
 [![npm downloads](https://img.shields.io/npm/dm/superagent-charset.svg?style=flat-square)](https://www.npmjs.com/package/superagent-charset)
 [![npm license](https://img.shields.io/npm/l/superagent-charset.svg?style=flat-square)](http://magicdawn.mit-license.org)
