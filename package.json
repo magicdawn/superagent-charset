@@ -4,7 +4,7 @@
   "description": "add charset support for node's superagent",
   "main": "index.js",
   "dependencies": {
-    "iconv-lite": "^0.4.16"
+    "iconv-lite": "^0.4.17"
   },
   "scripts": {
     "test": "mocha",
