@@ -8,10 +8,13 @@ require('superagent-proxy')(request) // #proxy
 
 describe('Basic Test', function() {
   it('it works', async function() {
+    // 2017-05-29 02:45:49
+    // 发现 sohu.com 变成了 utf-8
+    // 蜜汁尴尬
     const res = await request
-      .get('http://www.sohu.com/')
-      .charset('gbk')
-    res.text.should.match(/搜狐/)
+      .get('http://www.qq.com/')
+      .charset('gb2312')
+    res.text.should.match(/腾讯首页/)
   })
 
   it('bad charset', function() {
