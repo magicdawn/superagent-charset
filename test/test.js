@@ -56,6 +56,7 @@ describe('Basic Test', function() {
     should.exists(e)
     e.should.be.instanceof(Error)
     e.message.should.match(/encoding not supported by iconv-lite/)
+    server.unref()
   })
 
   it('automatic detection by default utf-8', async function() {
