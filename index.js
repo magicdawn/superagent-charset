@@ -37,7 +37,7 @@ module.exports = function install(superagent) {
     }
 
     // set the parser
-    this._parser = function(res, cb) { // res not instanceof http.IncomingMessage
+    this.buffer(true)._parser = function(res, cb) { // res not instanceof http.IncomingMessage
       const chunks = []
 
       res.on('data', function(chunk) {
